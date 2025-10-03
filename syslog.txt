@@ -1,0 +1,12 @@
+ifup[778]: DHCPDISCOVER on enp0s3 to 255.255.255.255 port 67 interval 3 (xid=0x7c520b36)
+dhclient[866]: DHCPDISCOVER on enp0s3 to 255.255.255.255 port 67 interval 3 (xid=0x7c520b36)
+dhclient[866]: DHCPREQUEST of 10.0.2.15 on enp0s3 to 255.255.255.255 port 67 (xid=0x360b527c)
+ifup[778]: DHCPREQUEST of 10.0.2.15 on enp0s3 to 255.255.255.255 port 67 (xid=0x360b527c)
+ifup[778]: DHCPOFFER of 10.0.2.15 from 10.0.2.2
+ifup[778]: DHCPACK of 10.0.2.15 from 10.0.2.2
+dhclient[866]: DHCPOFFER of 10.0.2.15 from 10.0.2.2
+dhclient[866]: DHCPACK of 10.0.2.15 from 10.0.2.2
+dhcpd[3190]: DHCPDISCOVER from 08:00:27:cf:f4:fd via enp0s9
+dhcpd[3190]: DHCPOFFER on 192.168.57.25 to 08:00:27:cf:f4:fd (c1) via enp0s9
+dhcpd[3190]: DHCPREQUEST for 192.168.57.25 (192.168.57.10) from 08:00:27:cf:f4:fd (c1) via enp0s9
+dhcpd[3190]: DHCPACK on 192.168.57.25 to 08:00:27:cf:f4:fd (c1) via enp0s9

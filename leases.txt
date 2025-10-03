@@ -1,0 +1,26 @@
+# The format of this file is documented in the dhcpd.leases(5) manual page.
+# This lease file was written by isc-dhcp-4.3.3
+
+server-duid "\000\001\000\0010rEx\010\000'\261\322h";
+
+lease 192.168.57.25 {
+  starts 5 2025/10/03 08:30:27;
+  ends 6 2025/10/04 08:30:27;
+  cltt 5 2025/10/03 08:30:27;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 08:00:27:cf:f4:fd;
+  client-hostname "c1";
+}
+lease 192.168.57.26 {
+  starts 5 2025/10/03 08:34:11;
+  ends 6 2025/10/04 08:34:11;
+  cltt 5 2025/10/03 08:34:11;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 08:00:27:2c:95:be;
+  client-hostname "c2";
+}
+
