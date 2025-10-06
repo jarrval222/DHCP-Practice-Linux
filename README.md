@@ -94,6 +94,8 @@ subnet 192.168.57.0 netmask 255.255.255.0 {
 
 ```
 
+```txt
+
 State       Recv-Q Send-Q                 Local Address:Port                                Peer Address:Port
 UNCONN      0      0                                  *:40831                                          *:*
 UNCONN      0      0
@@ -101,6 +103,8 @@ UNCONN      0      0
 UNCONN      0      0                                  *:68                                             *:*
 UNCONN      0      0
 *:::34116                                         *:::*
+
+```
 
 ### 4.2 Review logs
 
@@ -140,6 +144,8 @@ lease 192.168.57.25 {
   hardware ethernet 08:00:27:cf:f4:fd;
   client-hostname "c1";
 }
+
+```
 
 ```conf
 
