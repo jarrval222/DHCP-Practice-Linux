@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
     dhcp.vm.hostname = "dhcp-server"
     dhcp.vm.network "private_network", ip: "192.168.56.10"
     dhcp.vm.network "private_network", ip: "192.168.57.10", virtualbox_intnet: "dhcpnet"
-    dhcp.vm.provision "shell", path: "scripts/provision_dhcp.sh"
+    dhcp.vm.provision "shell", path: "scripts/dhcp_provision.sh"
   end
   config.vm.define "c1" do |client|
     client.vm.hostname = "c1"
