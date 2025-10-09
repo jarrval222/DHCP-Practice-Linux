@@ -1,17 +1,17 @@
-# Configuración de Servidor DHCP en Linux (Ubuntu Xenial64) con Vagrant
+# DHCP Server Configuration on Linux (Ubuntu Xenial64) with Vagrant
 
-## 1. Objetivo de la práctica
+## 1. Objective of the Practice
 
-Configurar un **servidor DHCP en Linux** con dos interfaces de red y varios clientes que obtendrán su configuración de red automáticamente.  
-Uno de los clientes recibirá una **IP fija basada en su MAC address**.
+Set up a **DHCP server on Linux** with two network interfaces and multiple clients that will automatically obtain their network configuration.  
+One of the clients will receive a **fixed IP address based on its MAC address**.
 
 ---
 
-## 2. Configuración del Servidor Linux
+## 2. Linux Server Configuration
 
-### 2.1 Red en Vagrant
+### 2.1 Network Setup in Vagrant
 
-En el `Vagrantfile` definimos dos interfaces de red:
+In the `Vagrantfile`, we define two network interfaces:
 
 ```ruby
 Vagrant.configure("2") do |config|
@@ -32,9 +32,10 @@ Vagrant.configure("2") do |config|
     client.vm.network "private_network", type:"dhcp", virtualbox_intnet: "dhcpnet"
   end
 end
+
 ```
 
-En la máquina servidor:
+On the server machine:
 
 ```bash
 #!/bin/bash
@@ -63,9 +64,9 @@ systemctl restart isc-dhcp-server
 
 ```
 
-## 3. Configuración del Servicio DHCP
+## 3. DHCP Service Configuration
 
-En este apartado configuramos el servicio **ISC DHCP Server** para que atienda a los clientes de la red interna `192.168.57.0/24`.
+In this section, we configure the ISC DHCP Server to serve clients on the internal network `192.168.57.0/24`
 
 ### 3.1 Address range
 
