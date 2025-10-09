@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     dhcp.vm.hostname = "dhcp-server"
     dhcp.vm.network "private_network", ip: "192.168.56.10"
     dhcp.vm.network "private_network", ip: "192.168.57.10", virtualbox_intnet: "dhcpnet"
-    #dhcp.vm.provision "shell", path: "scripts/provision_dhcp.sh"
+    dhcp.vm.provision "shell", path: "scripts/dhcp_provision.sh"
   end
   config.vm.define "c1" do |client|
     client.vm.hostname = "c1"
@@ -48,9 +48,18 @@ apt-get update && apt-get install -y isc-dhcp-server
 #Restart DHCP service
 systemctl restart isc-dhcp-server
 
+#Get the interface name associated with the internal network
+iface=$(ip a s | grep 192.168.57.10 -2 | head -1 | tr ': ' '\n' | grep enp)
+
+#Configure DHCP server to listen on the internal network interface
+sed -i "s/^INTERFACES=.*/INTERFACES=\"$iface\"/" /etc/default/isc-dhcp-server
+
 #Backup original configuration file and replace it with the custom one
 cp /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
-mv /vagrant/conf/dhcpd.conf /etc/dhcp/dhcpd.conf
+cp /vagrant/conf/dhcpd.conf /etc/dhcp/dhcpd.conf
+
+#Restart DHCP service to apply new configuration
+systemctl restart isc-dhcp-server
 
 ```
 
